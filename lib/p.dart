@@ -206,4 +206,23 @@ class Home extends StatelessWidget {
     );
   }
 }
+
+
+
+Card(
+                          margin: new EdgeInsets.only(top: 15),
+                          elevation: 10,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20.0),
+                          ),
+                          //shadowColor: Colors.black,
+                          color: Color.fromRGBO(10, 102, 152, 1),
+
+                          child: SizedBox(
+                            width: 350,
+                            height: 130,
+                          ),
+                        ),
+                        
+
 */

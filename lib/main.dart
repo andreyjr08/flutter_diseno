@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:prueba_diseno/home.dart';
+import 'package:prueba_diseno/prueba_responsive.dart';
 
 void main() {
   runApp(MyApp());
@@ -13,8 +14,12 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      initialRoute: 'home',
-      routes: {'home': (_) => Home('', '')},
+      initialRoute: 'pruebar',
+      routes: {
+        'home': (_) => Home('', ''),
+        'pruebar': (_) => PruebaResponsive(),
+      
+      },
     );
   }
 }
