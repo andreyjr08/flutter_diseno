@@ -23,6 +23,7 @@ class _PageResponsiveTest extends State<PruebaResponsive> {
   String reason = '';
   int _current = 0;
   final CarouselController _controller = CarouselController();
+  final CarouselController _controller2 = CarouselController();
 
   void onPageChange(int index, CarouselPageChangedReason changeReason) {
     setState(() {
@@ -70,7 +71,7 @@ class _PageResponsiveTest extends State<PruebaResponsive> {
                       child: Column(
                         children: [
                           Expanded(
-                              flex: 1,
+                              flex: 2,
                               child: Container(
                                   margin:
                                       new EdgeInsets.only(top: 10, bottom: 10),
@@ -94,7 +95,7 @@ class _PageResponsiveTest extends State<PruebaResponsive> {
                                     ],
                                   ))),
                           Expanded(
-                              flex: 3,
+                              flex: 4,
                               child: Container(
                                 color: Colors.yellow,
                                 child: TextField(
@@ -128,7 +129,7 @@ class _PageResponsiveTest extends State<PruebaResponsive> {
                                               flex: 1,
                                               child: ElevatedButton(
                                                 onPressed: () =>
-                                                    _controller.previousPage(),
+                                                    _controller2.previousPage(),
                                                 child: Text('←'),
                                               ),
                                             ),
@@ -139,14 +140,14 @@ class _PageResponsiveTest extends State<PruebaResponsive> {
                                                 options: CarouselOptions(
                                                     enlargeCenterPage: true,
                                                     height: 200),
-                                                carouselController: _controller,
+                                                carouselController: _controller2,
                                               ),
                                             ),
                                             Expanded(
                                               flex: 1,
                                               child: ElevatedButton(
                                                 onPressed: () =>
-                                                    _controller.nextPage(),
+                                                    _controller2.nextPage(),
                                                 child: Text('→'),
                                               ),
                                             ),
@@ -160,7 +161,7 @@ class _PageResponsiveTest extends State<PruebaResponsive> {
                                           items: imageSliders,
                                           carouselController: _controller,
                                           options: CarouselOptions(
-                                              autoPlay: true,
+                                              autoPlay: false,
                                               enlargeCenterPage: true,
                                               aspectRatio: 2.0,
                                               onPageChanged: (index, reason) {
