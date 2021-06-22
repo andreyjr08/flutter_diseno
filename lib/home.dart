@@ -312,3 +312,29 @@ class BasicDemo extends StatelessWidget {
     );
   }
 }
+
+
+ /*children: <Widget>[
+              new Flexible(
+                flex: 2,
+                fit: FlexFit.tight,
+                child: new Container(
+                  //padding: EdgeInsets.symmetric(vertical: 2.0),
+                  color: Color.fromRGBO(10, 102, 152, 1),
+                  child: Column(
+                    children: <Widget>[
+                      CarouselSlider(
+                        options: CarouselOptions(
+                          autoPlay: true,
+                          aspectRatio: 4,
+                          enlargeCenterPage: true,
+                          viewportFraction: 0.8
+                        ),
+                        items: imageSliders,
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            
+            ],*/
