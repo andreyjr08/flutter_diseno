@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 import 'package:carousel_slider/carousel_options.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:ink_page_indicator/ink_page_indicator.dart';
 
 final List<String> imgList = [
   'https://images.unsplash.com/photo-1520342868574-5fa3804e551c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6ff92caffcdd63681a35134a6770ed3b&auto=format&fit=crop&w=1951&q=80',
@@ -11,6 +13,14 @@ final List<String> imgList = [
   'https://images.unsplash.com/photo-1508704019882-f9cf40e475b4?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=8c6e5e3aba713b17aa1fe71ab4f0ae5b&auto=format&fit=crop&w=1352&q=80',
   'https://images.unsplash.com/photo-1519985176271-adb1088fa94c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=a0c8d632e977f94e5d312d9893258f59&auto=format&fit=crop&w=1355&q=80'
 ];
+
+List<Widget> _createChildren(int count) {
+  final List<Widget> result = [];
+  for (var i = 0; i < count; i++) {
+    result.add(const SizedBox.expand());
+  }
+  return result;
+}
 
 class PruebaResponsive extends StatefulWidget {
   @override
@@ -22,8 +32,12 @@ class PruebaResponsive extends StatefulWidget {
 class _PageResponsiveTest extends State<PruebaResponsive> {
   String reason = '';
   int _current = 0;
-  final CarouselController _controller = CarouselController();
+  final CarouselControllerImpl _controller = CarouselControllerImpl();
   final CarouselController _controller2 = CarouselController();
+  final ValueNotifier<double> page = ValueNotifier(0.0);
+
+  IndicatorShape shape = IndicatorShape(width: 0, height: 0);
+  IndicatorShape activeShape = IndicatorShape(height: 0, width: 0);
 
   void onPageChange(int index, CarouselPageChangedReason changeReason) {
     setState(() {
@@ -33,6 +47,7 @@ class _PageResponsiveTest extends State<PruebaResponsive> {
 
   @override
   Widget build(BuildContext context) {
+    final children = _createChildren(5);
     return Scaffold(
       appBar: AppBar(
         toolbarHeight: 70,
@@ -74,7 +89,7 @@ class _PageResponsiveTest extends State<PruebaResponsive> {
                               flex: 2,
                               child: Container(
                                   margin:
-                                      new EdgeInsets.only(top: 10, bottom: 10),
+                                      new EdgeInsets.only(top: 5, bottom: 5),
                                   color: Colors.black,
                                   child: Row(
                                     children: [
@@ -95,113 +110,304 @@ class _PageResponsiveTest extends State<PruebaResponsive> {
                                     ],
                                   ))),
                           Expanded(
-                              flex: 4,
-                              child: Container(
-                                color: Colors.yellow,
-                                child: TextField(
-                                  decoration: InputDecoration(
-                                    isDense: true,
-                                    contentPadding: const EdgeInsets.symmetric(
-                                        vertical: 9.0, horizontal: 5),
-                                    fillColor: Colors.white,
-                                    filled: true,
-                                    border: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(20),
-                                      borderSide: BorderSide(
-                                        width: 0,
-                                        style: BorderStyle.none,
+                              flex: 3,
+                              child: Row(
+                                children: [
+                                  Card(
+                                    elevation: 10,
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(20.0),
+                                    ),
+                                    color: Colors.white,
+                                    child: SizedBox(
+                                      width: 350,
+                                      height: 215,
+                                      child: Padding(
+                                        padding: const EdgeInsets.all(20.0),
+                                        child: Column(
+                                          children: [
+                                            Align(
+                                              alignment: Alignment(-0.7, 1),
+                                              child: Text(
+                                                'Correo electronico o numero de celular',
+                                                style: TextStyle(
+                                                  fontSize: 14,
+                                                  color: Colors.blue,
+                                                ),
+                                              ),
+                                            ),
+                                            Container(
+                                                margin: new EdgeInsets.only(
+                                                    bottom: 10),
+                                                child: TextField(
+                                                  decoration: InputDecoration(
+                                                    isDense: true,
+                                                    contentPadding:
+                                                        const EdgeInsets
+                                                                .symmetric(
+                                                            vertical: 9.0,
+                                                            horizontal: 5),
+                                                    fillColor: Colors.white,
+                                                    filled: true,
+                                                    border: OutlineInputBorder(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              20),
+                                                      borderSide: BorderSide(
+                                                        width: 0,
+                                                        style: BorderStyle.none,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ),
+                                                decoration: BoxDecoration(
+                                                  boxShadow: [
+                                                    BoxShadow(
+                                                      color: Colors.black38,
+                                                      blurRadius: 9,
+                                                      offset:
+                                                          const Offset(0, 7),
+                                                    ),
+                                                  ],
+                                                )),
+                                            Align(
+                                              alignment: Alignment(-0.9, 0),
+                                              child: Text(
+                                                'Contraseña',
+                                                style: TextStyle(
+                                                  fontSize: 14,
+                                                  color: Colors.blue,
+                                                ),
+                                              ),
+                                            ),
+                                            Container(
+                                                margin: new EdgeInsets.only(
+                                                    bottom: 10),
+                                                child: TextField(
+                                                  decoration: InputDecoration(
+                                                    isDense: true,
+                                                    contentPadding:
+                                                        const EdgeInsets
+                                                                .symmetric(
+                                                            vertical: 9.0,
+                                                            horizontal: 5),
+                                                    fillColor: Colors.white,
+                                                    filled: true,
+                                                    border: OutlineInputBorder(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              20),
+                                                      borderSide: BorderSide(
+                                                        width: 0,
+                                                        style: BorderStyle.none,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ),
+                                                decoration: BoxDecoration(
+                                                  boxShadow: [
+                                                    BoxShadow(
+                                                      color: Colors.black38,
+                                                      blurRadius: 9,
+                                                      offset:
+                                                          const Offset(0, 7),
+                                                    ),
+                                                  ],
+                                                )),
+                                            ElevatedButton(
+                                                onPressed: () {},
+                                                child: Text('Iniciar sesion'),
+                                                style: ButtonStyle(
+                                                    shape: MaterialStateProperty
+                                                        .all<RoundedRectangleBorder>(
+                                                            RoundedRectangleBorder(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              18.0),
+                                                    )),
+                                                    padding: MaterialStateProperty
+                                                        .all<EdgeInsets>(
+                                                            EdgeInsets
+                                                                .symmetric(
+                                                                    horizontal:
+                                                                        110))))
+                                          ],
+                                        ),
                                       ),
                                     ),
-                                  ),
-                                ),
+                                  )
+                                ],
                               )),
                           Expanded(
-                              flex: 4,
+                              flex: 5,
                               child: Container(
+                                  margin: new EdgeInsets.only(bottom: 5),
                                   color: Colors.white,
                                   child: Column(
                                     children: [
-                                      Expanded(
-                                          child: Center(
-                                        child: Row(
-                                          children: [
-                                            Expanded(
-                                              flex: 1,
-                                              child: ElevatedButton(
-                                                onPressed: () =>
-                                                    _controller2.previousPage(),
-                                                child: Text('←'),
-                                              ),
-                                            ),
-                                            Expanded(
-                                              flex: 8,
-                                              child: CarouselSlider(
-                                                items: imageSliders,
-                                                options: CarouselOptions(
-                                                    enlargeCenterPage: true,
-                                                    height: 200),
-                                                carouselController: _controller2,
-                                              ),
-                                            ),
-                                            Expanded(
-                                              flex: 1,
-                                              child: ElevatedButton(
-                                                onPressed: () =>
-                                                    _controller2.nextPage(),
-                                                child: Text('→'),
-                                              ),
-                                            ),
-                                          ],
+                                      Align(
+                                        alignment: Alignment(-0.9, 1.9),
+                                        child: Text(
+                                          'Mercado Pacific',
+                                          style: TextStyle(
+                                            fontSize: 14,
+                                            color: Colors.blue,
+                                          ),
                                         ),
-                                      )),
-                                      Expanded(
-                                          child: Container(
-                                        color: Color.fromRGBO(10, 102, 152, 1),
-                                        child: CarouselSlider(
-                                          items: imageSliders,
-                                          carouselController: _controller,
-                                          options: CarouselOptions(
-                                              autoPlay: false,
-                                              enlargeCenterPage: true,
-                                              aspectRatio: 2.0,
-                                              onPageChanged: (index, reason) {
-                                                setState(() {
-                                                  _current = index;
-                                                });
-                                              }),
-                                        ),
-                                      )),
-                                      Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: imgList
-                                            .asMap()
-                                            .entries
-                                            .map((entry) {
-                                          return GestureDetector(
-                                            onTap: () => _controller
-                                                .animateToPage(entry.key),
-                                            child: Container(
-                                              width: 12.0,
-                                              height: 12.0,
-                                              margin: EdgeInsets.symmetric(
-                                                  vertical: 8.0,
-                                                  horizontal: 4.0),
-                                              decoration: BoxDecoration(
-                                                  shape: BoxShape.circle,
-                                                  color: (Theme.of(context)
-                                                                  .brightness ==
-                                                              Brightness.dark
-                                                          ? Colors.white
-                                                          : Colors.black)
-                                                      .withOpacity(
-                                                          _current == entry.key
-                                                              ? 0.9
-                                                              : 0.4)),
-                                            ),
-                                          );
-                                        }).toList(),
                                       ),
+                                      Expanded(
+                                          flex: 4,
+                                          child: Container(
+                                            color: Colors.white,
+                                            child: Row(
+                                              children: [
+                                                Expanded(
+                                                    flex: 1,
+                                                    child: ElevatedButton.icon(
+                                                      icon: Icon(
+                                                        Icons
+                                                            .arrow_back_ios_outlined,
+                                                        color: Colors.blue,
+                                                      ),
+                                                      label: Text(''),
+                                                      onPressed: () =>
+                                                          _controller2
+                                                              .previousPage(),
+                                                      style: ElevatedButton
+                                                          .styleFrom(
+                                                        elevation: 0,
+                                                        primary: Colors.white,
+                                                        padding: EdgeInsets
+                                                            .symmetric(
+                                                                horizontal: 0,
+                                                                vertical: 0),
+                                                      ),
+                                                    )),
+                                                Expanded(
+                                                  flex: 8,
+                                                  child: CarouselSlider(
+                                                    items: imageSliders,
+                                                    options: CarouselOptions(
+                                                      aspectRatio: 4,
+                                                      viewportFraction: 0.3,
+                                                      enlargeCenterPage: true,
+                                                    ),
+                                                    carouselController:
+                                                        _controller2,
+                                                  ),
+                                                ),
+                                                Expanded(
+                                                  flex: 1,
+                                                  child: ElevatedButton.icon(
+                                                    icon: Icon(
+                                                      Icons
+                                                          .arrow_forward_ios_outlined,
+                                                      color: Colors.blue,
+                                                    ),
+                                                    label: Text(''),
+                                                    onPressed: () =>
+                                                        _controller2.nextPage(),
+                                                    style: ElevatedButton
+                                                        .styleFrom(
+                                                      elevation: 0,
+                                                      primary: Colors.white,
+                                                      padding:
+                                                          EdgeInsets.symmetric(
+                                                              horizontal: 0,
+                                                              vertical: 0),
+                                                    ),
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          )),
+                                      Expanded(
+                                          flex: 6,
+                                          child: Card(
+                                              color: Color.fromRGBO(
+                                                  10, 102, 152, 1),
+                                              child: Column(
+                                                children: [
+                                                  Container(
+                                                      margin:
+                                                          new EdgeInsets.only(
+                                                              bottom: 2),
+                                                      alignment:
+                                                          Alignment(-0.9, 1),
+                                                      height: 15,
+                                                      child: Text(
+                                                        'Desatacados',
+                                                        style: TextStyle(
+                                                          fontSize: 14,
+                                                          color: Colors.white,
+                                                        ),
+                                                      )),
+                                                  Expanded(
+                                                      flex: 8,
+                                                      child: Container(
+                                                          child: CarouselSlider(
+                                                        items: imageSliders,
+                                                        carouselController:
+                                                            _controller,
+                                                        options:
+                                                            CarouselOptions(
+                                                                autoPlay: false,
+                                                                enlargeCenterPage:
+                                                                    false,
+                                                                aspectRatio: 3,
+                                                                viewportFraction:
+                                                                    1,
+                                                                onPageChanged:
+                                                                    (index,
+                                                                        reason) {
+                                                                  setState(() {
+                                                                    _current =
+                                                                        index;
+                                                                  });
+                                                                }),
+                                                      ))),
+                                                  Expanded(
+                                                      flex: 2,
+                                                      child: Container(
+                                                        padding: EdgeInsets
+                                                            .symmetric(
+                                                                horizontal: 50,
+                                                                vertical: 0),
+                                                        height: 25,
+                                                        child:
+                                                            Column(children: [
+                                                          Column(
+                                                            children: <Widget>[
+                                                              buildInkPageIndicator(
+                                                                  InkStyle
+                                                                      .simple),
+                                                            ],
+                                                          ),
+                                                          InkWell(
+                                                            onTap: () =>
+                                                                _controller
+                                                                    .animateToPage(
+                                                              // ignore: unrelated_type_equality_checks
+                                                              _controller.ready !=
+                                                                      children.length -
+                                                                          1
+                                                                  ? children
+                                                                          .length -
+                                                                      1
+                                                                  : 0,
+                                                              duration:
+                                                                  const Duration(
+                                                                      milliseconds:
+                                                                          800),
+                                                              curve:
+                                                                  Curves.ease,
+                                                            ),
+                                                            
+                                                          ),
+                                                        ]),
+                                                      ))
+                                                ],
+                                              ))),
                                     ],
                                   ))),
                         ],
@@ -213,18 +419,57 @@ class _PageResponsiveTest extends State<PruebaResponsive> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Padding(
-              padding: const EdgeInsets.all(15.0),
-              child: Icon(Icons.category, color: Colors.white),
+              padding: const EdgeInsets.all(0.0),
+              child: ElevatedButton.icon(
+                icon: SvgPicture.asset(
+                  "assets/icon-facebook.svg",
+                  height: 35.0,
+                  width: 35.0,
+                  allowDrawingOutsideViewBox: true,
+                ),
+                label: Text(''),
+                onPressed: () {},
+                style: ElevatedButton.styleFrom(
+                  elevation: 0,
+                  primary: Color(0x000000),
+                  padding: EdgeInsets.symmetric(horizontal: 0, vertical: 0),
+                ),
+              ),
             ),
             Padding(
-              padding: const EdgeInsets.all(15.0),
-              child: Icon(Icons.category, color: Colors.white),
+              padding: const EdgeInsets.all(0.0),
+              child: ElevatedButton.icon(
+                icon: SvgPicture.asset(
+                  "assets/icon-twiter.svg",
+                  height: 35.0,
+                  width: 35.0,
+                  allowDrawingOutsideViewBox: true,
+                ),
+                label: Text(''),
+                onPressed: () {},
+                style: ElevatedButton.styleFrom(
+                  elevation: 0,
+                  primary: Color(0x000000),
+                  padding: EdgeInsets.symmetric(horizontal: 0, vertical: 0),
+                ),
+              ),
             ),
             Padding(
-              padding: const EdgeInsets.all(15.0),
-              child: Icon(
-                Icons.category,
-                color: Colors.white,
+              padding: const EdgeInsets.all(0.0),
+              child: ElevatedButton.icon(
+                icon: SvgPicture.asset(
+                  "assets/icon-instagram.svg",
+                  height: 35.0,
+                  width: 35.0,
+                  allowDrawingOutsideViewBox: true,
+                ),
+                label: Text(''),
+                onPressed: () {},
+                style: ElevatedButton.styleFrom(
+                  elevation: 0,
+                  primary: Color(0x000000),
+                  padding: EdgeInsets.symmetric(horizontal: 0, vertical: 0),
+                ),
               ),
             )
           ],
@@ -264,6 +509,31 @@ class _PageResponsiveTest extends State<PruebaResponsive> {
             ),
           ))
       .toList();
+
+  Widget buildInkPageIndicator(InkStyle style) {
+    return Expanded(
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          Expanded(
+            child: InkPageIndicator(
+              gap: 32,
+              padding: 16,
+              shape: shape,
+              page: page,
+              pageCount: 5,
+              activeShape: activeShape,
+              inactiveColor: Colors.grey.shade500,
+              activeColor: Colors.grey.shade700,
+              inkColor: Colors.grey.shade400,
+              style: style,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
 }
 /*
 class TapboxA extends StatefulWidget {
