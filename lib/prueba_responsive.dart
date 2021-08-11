@@ -75,9 +75,7 @@ class _PageResponsiveTest extends State<PruebaResponsive> {
           //margin: new EdgeInsets.only(top: 10),
           height: double.infinity,
           width: double.infinity,
-          decoration: BoxDecoration(
-              image: DecorationImage(
-                  image: AssetImage("assets/fondo.jpg"), fit: BoxFit.cover)),
+          color: Color.fromRGBO(234, 234, 234, 1),
           child: Column(
             children: [
               Expanded(
@@ -110,134 +108,134 @@ class _PageResponsiveTest extends State<PruebaResponsive> {
                                     ],
                                   ))),
                           Expanded(
-                              flex: 3,
-                              child: Row(
-                                children: [
-                                  Card(
-                                    elevation: 10,
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(20.0),
-                                    ),
-                                    color: Colors.white,
-                                    child: SizedBox(
-                                      width: 350,
-                                      height: 215,
-                                      child: Padding(
-                                        padding: const EdgeInsets.all(20.0),
-                                        child: Column(
-                                          children: [
-                                            Align(
-                                              alignment: Alignment(-0.7, 1),
-                                              child: Text(
-                                                'Correo electronico o numero de celular',
-                                                style: TextStyle(
-                                                  fontSize: 14,
-                                                  color: Colors.blue,
-                                                ),
-                                              ),
-                                            ),
-                                            Container(
-                                                margin: new EdgeInsets.only(
-                                                    bottom: 10),
-                                                child: TextField(
-                                                  decoration: InputDecoration(
-                                                    isDense: true,
-                                                    contentPadding:
-                                                        const EdgeInsets
-                                                                .symmetric(
-                                                            vertical: 9.0,
-                                                            horizontal: 5),
-                                                    fillColor: Colors.white,
-                                                    filled: true,
-                                                    border: OutlineInputBorder(
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              20),
-                                                      borderSide: BorderSide(
-                                                        width: 0,
-                                                        style: BorderStyle.none,
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ),
-                                                decoration: BoxDecoration(
-                                                  boxShadow: [
-                                                    BoxShadow(
-                                                      color: Colors.black38,
-                                                      blurRadius: 9,
-                                                      offset:
-                                                          const Offset(0, 7),
-                                                    ),
-                                                  ],
-                                                )),
-                                            Align(
-                                              alignment: Alignment(-0.9, 0),
-                                              child: Text(
-                                                'Contraseña',
-                                                style: TextStyle(
-                                                  fontSize: 14,
-                                                  color: Colors.blue,
-                                                ),
-                                              ),
-                                            ),
-                                            Container(
-                                                margin: new EdgeInsets.only(
-                                                    bottom: 10),
-                                                child: TextField(
-                                                  decoration: InputDecoration(
-                                                    isDense: true,
-                                                    contentPadding:
-                                                        const EdgeInsets
-                                                                .symmetric(
-                                                            vertical: 9.0,
-                                                            horizontal: 5),
-                                                    fillColor: Colors.white,
-                                                    filled: true,
-                                                    border: OutlineInputBorder(
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              20),
-                                                      borderSide: BorderSide(
-                                                        width: 0,
-                                                        style: BorderStyle.none,
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ),
-                                                decoration: BoxDecoration(
-                                                  boxShadow: [
-                                                    BoxShadow(
-                                                      color: Colors.black38,
-                                                      blurRadius: 9,
-                                                      offset:
-                                                          const Offset(0, 7),
-                                                    ),
-                                                  ],
-                                                )),
-                                            ElevatedButton(
-                                                onPressed: () {},
-                                                child: Text('Iniciar sesion'),
-                                                style: ButtonStyle(
-                                                    shape: MaterialStateProperty
-                                                        .all<RoundedRectangleBorder>(
-                                                            RoundedRectangleBorder(
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              18.0),
-                                                    )),
-                                                    padding: MaterialStateProperty
-                                                        .all<EdgeInsets>(
-                                                            EdgeInsets
-                                                                .symmetric(
-                                                                    horizontal:
-                                                                        110))))
-                                          ],
+                            flex: 4,
+                            child: Card(
+                                elevation: 10,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(20.0),
+                                ),
+                                child: Padding(
+                                  padding: const EdgeInsets.all(20.0),
+                                  child: Column(
+                                    children: [
+                                      Align(
+                                        alignment: Alignment(-0.9, 0),
+                                        child: Text(
+                                          'Correo electronico o numero de celular',
+                                          style: TextStyle(
+                                            fontSize: 14,
+                                            color:
+                                                Color.fromRGBO(10, 102, 152, 1),
+                                          ),
                                         ),
                                       ),
-                                    ),
-                                  )
-                                ],
-                              )),
+                                      Expanded(
+                                          flex: 3,
+                                          child: Container(
+                                              child: TextField(
+                                                decoration: InputDecoration(
+                                                  isDense: true,
+                                                  contentPadding:
+                                                      const EdgeInsets
+                                                              .symmetric(
+                                                          vertical: 9.0,
+                                                          horizontal: 5),
+                                                  fillColor: Colors.white,
+                                                  filled: true,
+                                                  border: OutlineInputBorder(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            20),
+                                                    borderSide: BorderSide(
+                                                      width: 0,
+                                                      style: BorderStyle.none,
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                              decoration: BoxDecoration(
+                                                boxShadow: [
+                                                  BoxShadow(
+                                                    color: Color.fromRGBO(
+                                                        181, 175, 175, 1),
+                                                    blurRadius: 15,
+                                                    spreadRadius: -9,
+                                                    offset: const Offset(0, -5),
+                                                  ),
+                                                ],
+                                              ))),
+                                      Align(
+                                        alignment: Alignment(-0.9, 0),
+                                        child: Text(
+                                          'Contraseña',
+                                          style: TextStyle(
+                                            fontSize: 14,
+                                            color:
+                                                Color.fromRGBO(10, 102, 152, 1),
+                                          ),
+                                        ),
+                                      ),
+                                      Expanded(
+                                          flex: 3,
+                                          child: Container(
+                                              child: TextField(
+                                                decoration: InputDecoration(
+                                                  isDense: true,
+                                                  contentPadding:
+                                                      const EdgeInsets
+                                                              .symmetric(
+                                                          vertical: 9.0,
+                                                          horizontal: 5),
+                                                  fillColor: Colors.white,
+                                                  filled: true,
+                                                  border: OutlineInputBorder(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            20),
+                                                    borderSide: BorderSide(
+                                                      width: 0,
+                                                      style: BorderStyle.none,
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                              decoration: BoxDecoration(
+                                                boxShadow: [
+                                                  BoxShadow(
+                                                    color: Color.fromRGBO(
+                                                        181, 175, 175, 1),
+                                                    blurRadius: 15,
+                                                    spreadRadius: -9,
+                                                    offset: const Offset(0, -5),
+                                                  ),
+                                                ],
+                                              ))),
+                                      Expanded(
+                                        flex: 3,
+                                        child: ElevatedButton(
+                                            onPressed: () {},
+                                            child: Text('Iniciar sesion'),
+                                            style: ButtonStyle(
+                                                backgroundColor:
+                                                    MaterialStateProperty.all(
+                                                        Color.fromRGBO(
+                                                            10, 102, 152, 1)),
+                                                shape: MaterialStateProperty.all<
+                                                        RoundedRectangleBorder>(
+                                                    RoundedRectangleBorder(
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          18.0),
+                                                )),
+                                                padding: MaterialStateProperty
+                                                    .all<EdgeInsets>(
+                                                        EdgeInsets.symmetric(
+                                                            horizontal: 110)))),
+                                      )
+                                    ],
+                                  ),
+                                )),
+                          ),
                           Expanded(
                               flex: 5,
                               child: Container(
@@ -251,7 +249,8 @@ class _PageResponsiveTest extends State<PruebaResponsive> {
                                           'Mercado Pacific',
                                           style: TextStyle(
                                             fontSize: 14,
-                                            color: Colors.blue,
+                                            color:
+                                                Color.fromRGBO(10, 102, 152, 1),
                                           ),
                                         ),
                                       ),
@@ -288,8 +287,8 @@ class _PageResponsiveTest extends State<PruebaResponsive> {
                                                   child: CarouselSlider(
                                                     items: imageSliders,
                                                     options: CarouselOptions(
-                                                      aspectRatio: 4,
-                                                      viewportFraction: 0.3,
+                                                      aspectRatio: 3,
+                                                      viewportFraction: 0.5,
                                                       enlargeCenterPage: true,
                                                     ),
                                                     carouselController:
@@ -344,8 +343,7 @@ class _PageResponsiveTest extends State<PruebaResponsive> {
                                                       )),
                                                   Expanded(
                                                       flex: 8,
-                                                      child: Container(
-                                                          child: CarouselSlider(
+                                                      child: CarouselSlider(
                                                         items: imageSliders,
                                                         carouselController:
                                                             _controller,
@@ -365,47 +363,10 @@ class _PageResponsiveTest extends State<PruebaResponsive> {
                                                                         index;
                                                                   });
                                                                 }),
-                                                      ))),
+                                                      )),
                                                   Expanded(
                                                       flex: 2,
-                                                      child: Container(
-                                                        padding: EdgeInsets
-                                                            .symmetric(
-                                                                horizontal: 50,
-                                                                vertical: 0),
-                                                        height: 25,
-                                                        child:
-                                                            Column(children: [
-                                                          Column(
-                                                            children: <Widget>[
-                                                              buildInkPageIndicator(
-                                                                  InkStyle
-                                                                      .simple),
-                                                            ],
-                                                          ),
-                                                          InkWell(
-                                                            onTap: () =>
-                                                                _controller
-                                                                    .animateToPage(
-                                                              // ignore: unrelated_type_equality_checks
-                                                              _controller.ready !=
-                                                                      children.length -
-                                                                          1
-                                                                  ? children
-                                                                          .length -
-                                                                      1
-                                                                  : 0,
-                                                              duration:
-                                                                  const Duration(
-                                                                      milliseconds:
-                                                                          800),
-                                                              curve:
-                                                                  Curves.ease,
-                                                            ),
-                                                            
-                                                          ),
-                                                        ]),
-                                                      ))
+                                                      child: Container())
                                                 ],
                                               ))),
                                     ],
@@ -509,31 +470,6 @@ class _PageResponsiveTest extends State<PruebaResponsive> {
             ),
           ))
       .toList();
-
-  Widget buildInkPageIndicator(InkStyle style) {
-    return Expanded(
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          Expanded(
-            child: InkPageIndicator(
-              gap: 32,
-              padding: 16,
-              shape: shape,
-              page: page,
-              pageCount: 5,
-              activeShape: activeShape,
-              inactiveColor: Colors.grey.shade500,
-              activeColor: Colors.grey.shade700,
-              inkColor: Colors.grey.shade400,
-              style: style,
-            ),
-          ),
-        ],
-      ),
-    );
-  }
 }
 /*
 class TapboxA extends StatefulWidget {
